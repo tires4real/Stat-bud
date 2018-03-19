@@ -26,7 +26,7 @@ no_cores <- detectCores() - 1
 # Initiate cluster
 cl <- makeCluster(no_cores)
 
-setwd("C:/Users/Émilie/Documents/Pierre/FA Data Exploration")
+setwd("C:/Users/ï¿½milie/Documents/Pierre/FA Data Exploration")
 FA <- read_excel("Fatty Acids.xlsx", sheet = "Paste data on top left", trim_ws=TRUE)
 
 ###### First cleaning of the data
@@ -831,7 +831,7 @@ Complete_analysis<-function(df){
 ### apply the master function to each of these data.frames. We will store the
 ### individual projects list to disc.
 
-setwd("C:/Users/Émilie/Documents/Pierre/FA Data Exploration/automated_reports")
+setwd("C:/Users/?milie/Documents/Pierre/FA Data Exploration/automated_reports")
 for(i in c(1:length(l))){
   df<-l[[i]]
   full_results<-Complete_analysis(df)
@@ -851,7 +851,7 @@ for(i in c(1:length(l))){
 ### a list of lists containing all the results of a specific project.
 ### Then, we will be able to iterate over projects.
 
-setwd("C:/Users/Émilie/Documents/Pierre/FA Data Exploration/automated_reports_split")
+setwd("C:/Users/?milie/Documents/Pierre/FA Data Exploration/automated_reports_split")
 
 ### STATUS
 ### I think the worst is over.
