@@ -1,22 +1,17 @@
 rm(list = ls())
 
-library(readxl)
-library(e1071)
-library(gplots)
-library(ggplot2)
-library(caret)
-library(ggfortify)
-library(gridExtra)
-library(analogue)
-library(ggrepel)
-library(parallel)
-library(dplyr)
-library(vegan)
-library(indicspecies)
-library(reshape2)
-library(plyr)
-### library(r2excel)   ### Doesn't work at home. Can't install. Need to change this.
+### These 3 lines of code make a list of all packages to install,
+### then, a list of all packages already installed, then installs packages not already installed.
+### Thanks to Shane for his advice on https://stackoverflow.com/questions/4090169/elegant-way-to-check-for-missing-packages-and-install-them
 
+list.of.packages <- c("readxl", "e1071", "gplots", "ggplot2", "caret", "ggfortify", "gridExtra", "analogue", "ggrepel", "parallel", "dplyr", "plyr", "vegan", "indicspecies", "reshape2")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+### This line of code scrolls through the list of packages to load and applies the library function to them, loading them all.
+lapply(list.of.packages, library, character.only = TRUE)
+
+### library(r2excel)   ### Doesn't work at home. Can't install. Need to change this.
 
 set.seed(2)
 
@@ -26,7 +21,7 @@ no_cores <- detectCores() - 1
 # Initiate cluster
 cl <- makeCluster(no_cores)
 
-setwd("C:/Users/�milie/Documents/Pierre/FA Data Exploration")
+setwd("C:/Users/?milie/Documents/Pierre/FA Data Exploration")
 FA <- read_excel("Fatty Acids.xlsx", sheet = "Paste data on top left", trim_ws=TRUE)
 
 ###### First cleaning of the data
